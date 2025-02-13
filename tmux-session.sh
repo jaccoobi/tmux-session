@@ -24,6 +24,8 @@ elif [ $option == "o" ]; then
   tmux select-window -t:nvim
   cd $project_dir
   yazi
+elif [ $option == "q" ]; then
+  exit 0
 else
   echo "Not a valid command."
 fi
