@@ -6,19 +6,16 @@ if [ $option == "c" ]; then
   echo "TEST: creating new project" #TODO
 elif [ $option == "o" ]; then
   project_dir=`find ~/Documents/dev -mindepth 1 -maxdepth 1 | fzf`
+  cd $project_dir
 
   project_name=`basename $project_dir | tr . _`
   tmux rename-session $project_name
 
-  cd $project_dir
   tmux rename-window "nvim"
 
-  tmux new-window
-  tmux rename-window "run"
+  tmux neww -n "run"
   
-  tmux new-window
-  tmux rename-window "git"
-  bash lazygit
+  tmux neww -n "git" # TODO: open lazygit
 
   # Go to first window
   tmux select-window -t:nvim
