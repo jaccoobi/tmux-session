@@ -7,8 +7,6 @@ open_session() {
   tmux rename-window "nvim"
 
   tmux neww -n "run"
-  
-  tmux neww -n "git" # TODO: open lazygit
 
   # Go to first window
   tmux select-window -t:nvim
