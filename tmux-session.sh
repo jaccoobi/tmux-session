@@ -21,7 +21,7 @@ if [ $option == "c" ]; then
   mkdir $name
   cd $name
 
-  open_session ~/Documents/dev/$project_dir
+  open_session ~/Documents/dev/$name
 elif [ $option == "o" ]; then
   project_dir=`find ~/Documents/dev -mindepth 1 -maxdepth 1 | fzf`
   cd $project_dir
