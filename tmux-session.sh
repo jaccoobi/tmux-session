@@ -1,5 +1,13 @@
 #!/usr/bin/bash
 
+java_project() {
+  # maven
+  mvn archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.5
+
+  # git
+  git init
+}
+
 open_session() {
   project_name=`basename $1 | tr . _`
   tmux rename-session $project_name
@@ -17,9 +25,16 @@ read -p "Create new project or open an existing one? " option
 
 if [ $option == "c" ]; then
   read -p "What is the name of the project? " name
+  languages="java"
+  project_language=`echo $languages | fzf`
+
   cd ~/Documents/dev/
   mkdir $name
   cd $name
+
+  if [ $project_language == "java" ]; then
+    java_project
+  fi
 
   open_session ~/Documents/dev/$name
 elif [ $option == "o" ]; then
