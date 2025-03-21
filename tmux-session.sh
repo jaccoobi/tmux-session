@@ -36,8 +36,7 @@ open_session() {
 read -p "Create new project or open an existing one? " option
 
 if [ $option == "c" ]; then
-  languages="java"
-  project_language=`echo $languages | fzf --prompt "Language > "`
+  project_language=`cat ~/Documents/dev/script-tmux-session/languages.txt | fzf --no-multi --prompt "Language > "`
 
   cd ~/Documents/dev/
 
