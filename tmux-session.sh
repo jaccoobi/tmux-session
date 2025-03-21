@@ -12,7 +12,10 @@ java_project() {
   cd "java-$artifact_id"
 
   # git
+  cp ~/Documents/dev/script-tmux-session/java-gitignore.txt .gitignore
   git init
+  git add .
+  git commit -m "Initial commit"
 
   open_session "~/Documents/dev/java-$artifact_id"
 }
