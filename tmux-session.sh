@@ -1,5 +1,12 @@
 #!/usr/bin/bash
 
+setup_git() {
+  git init
+  git branch -M master
+  git add .
+  git commit -m "Initial commit"
+}
+
 java_project() {
   read -p "Enter the groupId (org.apache.maven): " group_id
   read -p "Enter the artifactID (maven-clean-plugin): " artifact_id
@@ -13,9 +20,7 @@ java_project() {
 
   # git
   cp ~/Documents/dev/script-tmux-session/java-gitignore.txt .gitignore
-  git init
-  git add .
-  git commit -m "Initial commit"
+  setup_git()
 
   open_session "~/Documents/dev/java-$artifact_id"
 }
